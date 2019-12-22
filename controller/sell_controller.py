@@ -4,14 +4,13 @@ from view import terminal_view
 def run():
     options = ["Show the whole selling table",
                "Read the record of the ID",
-               "Add new record to taable",
+               "Add new record to table",
                "Transaction of specific employees",
                "Transaction by specific customer",
                "Transaction by manufacturer",
                "The best selling employee",
                "Ranking of the sold items",
-               "Generate the flow report",
-               "Additional feature"]
+               "Generate the flow report"]
     choice = None
     while choice != "0":
         choice = terminal_view.get_choice(options)
@@ -56,26 +55,37 @@ def run():
             terminal_view.print_table(row_table, header)
         
         elif choice == "4":
-            # show the record to be deleted
-            
-            pass
+            # transaction by specific employee
+            row_table = []
+            row_table = selling.data_manager.get_table_from_file("model/selling/sellflow.csv")
+            emplo_transactions = []
+            emplo_one_transaction = []
+            spec_id_emplo = terminal_view.get_inputs(["Please enter employee ID: "], "")
+            trans_emplo = selling.get_eplo_trans(row_table, spec_id_emplo)
+            terminal_view.print_result(trans_emplo, "List of employee transaction:")
         
         elif choice == "5":
+            # transaction by specyfic customer
             pass
         
         elif choice == "6":
+            # transction by specyfic manufacture
             pass
                 
         elif choice == "7":
+            # the best selling employee
             pass
 
         elif choice == "8":
+            # ranking of the sold action
             pass
 
         elif choice == "9":
+            # 
             pass
 
         elif choice == "10":
+            # generate the report
             pass
         
         else:

@@ -83,3 +83,12 @@ def read(table, id_):
                     ile_spac_po = size_lista[j] - (k + ile_spac_przed)
                     print("|" + ile_spac_przed*" " + table[i][j] + ile_spac_po*" " + "|")
     print("\\" + 122*"-" + "/")
+
+
+def get_eplo_trans(table, id_emplo):
+    strtym = id_emplo[0]
+    emplo_tab = []
+    for i in range(1,len(table)):
+        if table[i][1] == strtym:
+            emplo_tab.append(table[i])
+    return emplo_tab    
